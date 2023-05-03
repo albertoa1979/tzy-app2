@@ -1,12 +1,14 @@
-import Product from './Components/Product';
 import './App.css';
 import Navbar from './Components/Navbar';
+import Products from './Components/Products';
+import Footer from './footer/footer';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Product />
+      <Products />
+      <Footer />
     </div>
   );
 }
