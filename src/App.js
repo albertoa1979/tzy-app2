@@ -3,11 +3,12 @@ import Navbar from './Components/Navbar';
 import Products from './Components/Products';
 import Footer from './footer/footer';
 
-function App() {
+
+function App () {
   return (
     <div className="App">
       <Navbar />
-      <Products />
+      <Products/> 
       <Footer />
     </div>
   );

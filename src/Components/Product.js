@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
-export default function Product() {
+export default function Product({product: {id, name, productType, price, rating, image, description}}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -62,27 +62,27 @@ export default function Product() {
             variant="h5"
             color="textSecondary"
           >
-            {accounting.formatMoney(185)}
+            {accounting.formatMoney(price)}
           </Typography> 
         }
-        title="Album Melina"
+        title={name}
         subheader="Disponible"
       />
       <CardMedia
         className={classes.media}
-        image="https://scontent.fgdl5-1.fna.fbcdn.net/v/t39.30808-6/334934616_196799782972513_5932666973942632928_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH8gRoHUW1W0Bwf0-8FZkzJm0oPPfrREb-bSg89-tERv8jpq8vrwZjTK1hBkkbXhVeS9YzcHJQgtlEcwygtJGHC&_nc_ohc=XOc3IJqDnSwAX8GcDlx&_nc_ht=scontent.fgdl5-1.fna&oh=00_AfBwZGpRxBTRKSHWva4fLrF9MPPTAXD4fyInUEKpjnh5OQ&oe=6455FB8D"
-        title="Minnie Corazon"
+        image={image}
+        title={name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-         ⭐ Jumper Minnie Mouse color rojo.
+         {productType}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to cart">  
           <AddShoppingCart fontSize='large'/>
         </IconButton>
-        {Array (5)
+        {Array (rating)
         .fill()
         .map((_, i) => (
           <p>&#11088;</p>
@@ -101,10 +101,7 @@ export default function Product() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            ⭐Envío: 10 días hábiles. 
-            ⭐Tallas: Ch: 4  años, M: 6 años, G 8 años y Xl 10 a 12 años.
-            ⭐Elaborado en tela Liverpol.
-            ⭐Envios a cualquier parte del mundo.
+            {description}
           </Typography>
         </CardContent>
       </Collapse>
