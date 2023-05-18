@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Grid from "@material-ui/core";
-import { Typography } from "@material-ui/core/styles/createTypography";
+import Grid from "@material-ui/core/Grid";
+import { Typography } from "@material-ui/core";
 import CheckoutCard from './CheckoutCard'; 
 import products from '../product-data';
+import Total from './Total';
 import Product from './Product';
 
 const UseStyles = makeStyles ((theme) => ({
@@ -15,13 +16,13 @@ const UseStyles = makeStyles ((theme) => ({
 
 const CheckoutPage =() => {
     const classes = UseStyles();
-   
+    
     function FormRow () {
         return (
             <React.Fragment>
                 {products.map((item) => (
                     <Grid item xs={12} sm={8} md={6} lg={4}>
-                        <Product key = {item.id} product={item} />
+                        <CheckoutCard key = {item.id} product={item} />
                     </Grid>
                 ))}
             </React.Fragment>
@@ -33,7 +34,7 @@ const CheckoutPage =() => {
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Typography align="center" gutterBottom variant="h4">
-                        Shopping Cart
+                        Carrito de Compra
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={8} md={9} container spacing={2}>
@@ -41,7 +42,7 @@ const CheckoutPage =() => {
                 </Grid>
                <Grid item sx={12} sm={4} md={3}>
                     <Typography align="center" gutterBottom variant="h4">
-                            Total
+                            <Total />
                     </Typography>
                 </Grid> 
             </Grid>
